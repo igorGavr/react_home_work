@@ -1,0 +1,16 @@
+.usersMain{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.users{
+    background-color: #467346;
+    width: 40%;
+    padding: 12px;
+}
+.userDetails{
+    background-color: #a9d0a9;
+    width: 50%;
+    padding: 23px;
+
+}

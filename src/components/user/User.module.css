@@ -1,0 +1,12 @@
+.user{
+    background-color: #a2b0d0;
+    margin-bottom: 8px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    line-height: 45px;
+    font-size: 24px;
+    border-radius: 15px;
+
+}
