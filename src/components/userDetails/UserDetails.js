@@ -21,7 +21,10 @@ const UserDetails = ({user}) => {
             <div>
                 {companyName}
             </div>
-            {catchPhrase}  {bs}
+            <div>
+                {catchPhrase} -- {bs}
+            </div>
+
         </div>
     );
 };

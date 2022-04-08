@@ -1,12 +1,15 @@
 import css from './App.module.css'
 
-import { Users} from "./components";
+import { Users, SingleUser} from "./components";
 
 
 function App() {
+    
   return (
     <div className={css.main_app}>
+      <SingleUser/>
       <Users/>
+
 
 
     </div>

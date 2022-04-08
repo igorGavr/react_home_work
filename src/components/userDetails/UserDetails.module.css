@@ -1,8 +1,11 @@
 .userDetails{
-    background-color: indianred;
+    /*background-color: indianred;*/
     line-height: 36px;
     font-size: 24px;
 }
 .userDetails div{
     margin-bottom: 18px;
+    background-color: #c8ceff;
+    padding: 12px;
+    border-radius: 23px;
 }
