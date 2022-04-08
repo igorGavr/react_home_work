@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './UserDetails.module.css'
 
-const UserDetails = ({user}) => {
+const UserDetails = ({user, getPosts}) => {
     const {id, name, username, email, address: {street, suite, city, zipcode, geo:{lat, lng}},
         phone, website, company: {name: companyName, catchPhrase, bs}} = user
     return (
@@ -24,6 +24,7 @@ const UserDetails = ({user}) => {
             <div>
                 {catchPhrase} -- {bs}
             </div>
+            <button onClick={() => getPosts(id)}>Show Posts</button>
 
         </div>
     );

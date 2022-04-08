@@ -5,7 +5,7 @@ import {userService} from "../../services";
 import {User} from "../user/User";
 import {UserDetails} from "../userDetails/UserDetails";
 
-const Users = ({getUser}) => {
+const Users = ({getUser, getPosts}) => {
     const [users, setUsers] = useState([])
     const [user, setUser] = useState(null);
     useEffect(() => {
@@ -27,7 +27,8 @@ const Users = ({getUser}) => {
                     />)}
             </div>
             <div className={css.userDetails}>
-                {user && <UserDetails user={user}/>}
+                {user && <UserDetails user={user}
+                            getPosts={getPosts}/>}
             </div>
         </div>
     );
