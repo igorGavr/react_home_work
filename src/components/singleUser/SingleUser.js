@@ -1,10 +1,12 @@
 import React from 'react';
 
+import css from './Single.module.css'
+
 const SingleUser = ({user}) => {
-    const {id, name , username} = user
+    const {id} = user
     return (
-        <div>
-            ID - {id}  Name - {name} Username - {username}
+        <div className={css.singleUser}>
+            ID - {id}
         </div>
     );
 };

@@ -1,12 +1,15 @@
 import React from 'react';
 import css from './User.module.css'
 
-const User = ({user, getUserId}) => {
+const User = ({user, getUserId, getUser}) => {
     const {id , name, username} = user
     return (
         <div className={css.user}>
             {id} -- {name} -- {username}
-            <button onClick={() => getUserId(id)}>Details</button>
+            <button onClick={() => {
+                getUserId(id)
+                getUser(user)}
+            }>Details</button>
         </div>
     );
 };

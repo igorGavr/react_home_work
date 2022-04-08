@@ -5,7 +5,7 @@ import {userService} from "../../services";
 import {User} from "../user/User";
 import {UserDetails} from "../userDetails/UserDetails";
 
-const Users = () => {
+const Users = ({getUser}) => {
     const [users, setUsers] = useState([])
     const [user, setUser] = useState(null);
     useEffect(() => {
@@ -23,6 +23,7 @@ const Users = () => {
                         key={user.id}
                         user={user}
                         getUserId={getUserId}
+                        getUser={getUser}
                     />)}
             </div>
             <div className={css.userDetails}>
