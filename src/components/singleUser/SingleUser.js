@@ -6,8 +6,11 @@ const SingleUser = ({user}) => {
     const {id} = user
     return (
         <div className={css.singleUser}>
-            ID - {id}
+            <div>
+                ID - {id}
+            </div>
         </div>
+
     );
 };
 
