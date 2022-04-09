@@ -10,10 +10,16 @@ function App() {
 
   return (
     <div className={css.main_app}>
-        { singleUser && <SingleUser user={singleUser} />}
-        <Users getUser={setSingleUser}/>
-        <Form1/>
-        <Form2/>
+        <div>
+            { singleUser && <SingleUser user={singleUser} />}
+            <Users getUser={setSingleUser}/>
+            <Form1/>
+            <Form2/>
+        </div>
+        <div>
+
+        </div>
+
 
 
     </div>
