@@ -11,6 +11,7 @@ function App() {
     <div className={css.main_app}>
        <div>
            <Users setUser={setUser} setUserIdForPosts={setUserIdForPosts}/>
+
            {user && <UserDetails user={user}
                                  setUserIdForPosts={setUserIdForPosts}/>}
        </div>
