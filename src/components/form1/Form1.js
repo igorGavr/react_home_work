@@ -16,6 +16,7 @@ const Form1 = () => {
         <form className={css.form1} onSubmit={submit}>
             <div><label>Name : <input type="text" ref={name}/></label></div>
             <div><label>Age : <input type="number" ref={age}/></label></div>
+
             <button className={css.btn}>Save</button>
         </form>
     );
