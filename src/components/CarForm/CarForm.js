@@ -28,10 +28,10 @@ const CarForm = ({setNewCar}) => {
             {errors.model && <span>{errors.model.message}</span>}
             {/*{formError.model && <span>{formError.model[0]}</span>}*/}
             <div><label>Price: <input type="text" {...register('price', {valueAsNumber: true})}/></label></div>
-            {errors.Price && <span>{errors.Price.message}</span>}
+            {errors.price && <span>{errors.price.message}</span>}
             {/*{formError.price && <span>{formError.price[0]}</span>}*/}
             <div><label>Year: <input type="text" {...register('year', {valueAsNumber: true})}/></label></div>
-            {errors.Year && <span>{errors.Year.message}</span>}
+            {errors.year && <span>{errors.year.message}</span>}
             {/*{formError.year && <span>{formError.year[0]}</span>}*/}
             <button>Save</button>
         </form>
