@@ -3,7 +3,7 @@ import {carService} from "../../services";
 import {Car} from "../Car/Car";
 import {set} from "react-hook-form";
 
-const Cars = ({newCar}) => {
+const Cars = ({newCar, setCarForUpdate}) => {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const Cars = ({newCar}) => {
     return (
         <div>
             {
-                cars.map(car => <Car key={car.id} car={car} />)
+                cars.map(car => <Car key={car.id} car={car} setCarForUpdate={setCarForUpdate}/>)
             }
         </div>
     );

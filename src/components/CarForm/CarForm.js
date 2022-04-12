@@ -1,16 +1,27 @@
-import React, {useState} from 'react';
-import {useForm} from "react-hook-form";
+import React, {useEffect, useState} from 'react';
+import {set, useForm} from "react-hook-form";
 import {carService} from "../../services";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {carValidator} from "../../validators";
 
 
-const CarForm = ({setNewCar}) => {
+const CarForm = ({setNewCar, carForUpdate}) => {
     // const [formError, setFormError] = useState({});
 
-    const {register, reset, handleSubmit, formState:{errors}} = useForm({
+    const {register, reset, handleSubmit, formState:{errors}, setValue} = useForm({
         resolver: joiResolver(carValidator),
         mode: "all"});
+
+    useEffect(() => {
+        if (carForUpdate) {
+            const {model, price, year} = carForUpdate
+            setValue('model', model)
+            setValue('price', price)
+            setValue('year', year)
+
+        }
+
+    })
 
     const submit = async (car) => {
         try{
