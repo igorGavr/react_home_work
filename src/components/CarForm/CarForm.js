@@ -18,16 +18,18 @@ const CarForm = ({setNewCar, carForUpdate}) => {
             setValue('model', model)
             setValue('price', price)
             setValue('year', year)
-
         }
-
-    })
+    }, [carForUpdate])
 
     const submit = async (car) => {
         try{
-            const {data} = await carService.create(car);
-            console.log(data)
-            setNewCar(data)
+            if (carForUpdate) {
+                const {data} = await carService.updateById(carForUpdate.id, car);
+                setNewCar(data)
+            } else {
+                const {data} = await carService.create(car);
+                setNewCar(data)
+            }
             reset()
         }catch (e) {
             // setFormError(e.response.data)
