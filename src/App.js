@@ -13,7 +13,9 @@ function App() {
     <div className="App">
         <CarForm setNewCar={setNewCar}
                  carForUpdate={carForUpdate}
-                 setUpdatedCar={setUpdatedCar}/>
+                 setUpdatedCar={setUpdatedCar}
+                 setCarForUpdate={setCarForUpdate}
+        />
         <hr/>
         <Cars newCar={newCar}
               setCarForUpdate={setCarForUpdate}

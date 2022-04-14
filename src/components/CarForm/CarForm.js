@@ -5,10 +5,10 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {carValidator} from "../../validators";
 
 
-const CarForm = ({setNewCar, carForUpdate, setUpdatedCar}) => {
+const CarForm = ({setNewCar, carForUpdate, setUpdatedCar, setCarForUpdate}) => {
     // const [formError, setFormError] = useState({});
 
-    const {register, reset, handleSubmit, formState:{errors}, setValue} = useForm({
+    const {register, reset, handleSubmit, formState:{errors, isValid}, setValue} = useForm({
         resolver: joiResolver(carValidator),
         mode: "all"});
 
@@ -34,6 +34,10 @@ const CarForm = ({setNewCar, carForUpdate, setUpdatedCar}) => {
             // setFormError(e.response.data)
         }
     }
+    const clearForm = () => {
+        setCarForUpdate(false);
+        reset();
+    }
     return (
         <form onSubmit={handleSubmit(submit)}>
             <div><label>Model: <input type="text" {...register('model')}/></label></div>
@@ -45,7 +49,11 @@ const CarForm = ({setNewCar, carForUpdate, setUpdatedCar}) => {
             <div><label>Year: <input type="text" {...register('year', {valueAsNumber: true})}/></label></div>
             {errors.year && <span>{errors.year.message}</span>}
             {/*{formError.year && <span>{formError.year[0]}</span>}*/}
-            <button>Save</button>
+            <br/>
+            <button disabled={!isValid}>{carForUpdate ? 'Update' : 'Create'}</button>
+            {
+                !!carForUpdate &&  <button onClick={clearForm}>clear form</button>
+            }
         </form>
     );
 };
