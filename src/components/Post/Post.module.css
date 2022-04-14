@@ -1,0 +1,8 @@
+.main{
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background-color: #c2fc91;
+    border-radius: 15px;
+}
