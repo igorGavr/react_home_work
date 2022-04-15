@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import css from './Post.module.css'
+import {Button} from "../../components";
 
 const Post = ({post}) => {
     const {userId, id, title} = post
@@ -10,7 +11,7 @@ const Post = ({post}) => {
                 {userId} -- {id} -- {title}
             </div>
             <div>
-                <Link to={id.toString()} state={post}>Get Details</Link>
+                <Button to={id.toString()} state={post}>Get Details</Button>
             </div>
 
         </div>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
-import {PostDetails} from "../../components/PostDetails/PostDetails";
+import {PostDetails} from "../../components";
 import {postService} from "../../services";
 import css from './SinglePostPage.module.css'
 
