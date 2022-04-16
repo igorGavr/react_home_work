@@ -1,15 +1,17 @@
 .header{
     min-height: 50px;
-    background-color: blue;
+    background-color: #4545fd;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding: 35px;
+
 
 }
 
 .header a{
     text-decoration: none;
-    color: snow;
+    color: white;
     font-size: 50px;
 }
 

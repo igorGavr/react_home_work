@@ -1,18 +1,20 @@
 import React from 'react';
-import {Outlet, Link, NavLink} from "react-router-dom"
+import {Outlet, Link, NavLink} from "react-router-dom";
+
 import css from './MainLayout.module.css'
 
 const MainLayout = () => {
     return (
-        <div>
+        <div >
             <div className={css.header}>
-                <NavLink to="home">Home</NavLink>
-                <NavLink to="users">Users</NavLink>
-                <NavLink to="posts">Posts</NavLink>
-                <NavLink to="about">About</NavLink>
+                <NavLink to={'home'}>home</NavLink>
+                <NavLink to={'users'}>users</NavLink>
+                <NavLink to={'posts'}>posts</NavLink>
+                <NavLink to={'about'}>about</NavLink>
             </div>
-            <hr/>
             <Outlet/>
+
+
         </div>
     );
 };
