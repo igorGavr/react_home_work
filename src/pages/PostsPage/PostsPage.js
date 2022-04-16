@@ -4,6 +4,7 @@ const PostsPage = () => {
     return (
         <div>
             PostsPage
+            fgg
         </div>
     );
 };
