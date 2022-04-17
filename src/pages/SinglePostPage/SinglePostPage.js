@@ -2,6 +2,7 @@ import {useLocation, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {postService} from "../../services";
 import {PostDetails} from "../../components";
+import {Outlet} from "react-router-dom";
 
 const SinglePostPage = () => {
     const {state} = useLocation();
@@ -17,7 +18,12 @@ const SinglePostPage = () => {
     }, [id, state])
     return (
         <div>
-            {post && <PostDetails post={post}/>}
+            <div>
+                {post && <PostDetails post={post}/>}
+            </div>
+            <div>
+                <Outlet/>
+            </div>
         </div>
     );
 };

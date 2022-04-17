@@ -11,6 +11,7 @@ import {
   SingleUserPage,
   UsersPage
 } from "./pages";
+import {Comments} from "./components/Comments/Comments";
 
 const App = () => {
   return (
@@ -24,7 +25,9 @@ const App = () => {
             </Route>
           </Route>
           <Route path={'posts'} element={<PostsPage/>}>
-            <Route path={':id'} element={<SinglePostPage/>}/>
+            <Route path={':id'} element={<SinglePostPage/>}>
+              <Route path={'comments'} element={<Comments/>}/>
+            </Route>
           </Route>
           <Route path={'about'} element={<AboutPage/>}/>
           <Route path={'*'} element={<NotFoundPage/>}/>
