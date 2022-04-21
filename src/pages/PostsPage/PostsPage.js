@@ -16,7 +16,7 @@ const PostsPage = () => {
         if (userId) {
             postService.getByUserId(userId).then(({ data }) => setPosts(data))
         } else {
-            postService.getAll(query.get('page'), 10).then(({ data }) => setPosts(data))
+            postService.getAll(query.get('page'), 5).then(({ data }) => setPosts(data))
         }
         // console.log(value)
         // value.age = 11

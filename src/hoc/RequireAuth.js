@@ -9,10 +9,7 @@ const RequireAuth = ({children}) => {
     if (!user) {
         return <Navigate to={'/login'} state={location}/>
     }
-    return (
-        <div>
-        </div>
-    );
+    return children
 };
 
 export {RequireAuth};
