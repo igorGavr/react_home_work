@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { MainLayout } from "./layouts";
 import {
   AboutPage,
-  HomePage,
+  HomePage, LoginPage,
   NotFoundPage,
   PostsPage,
   SinglePostPage,
@@ -12,6 +12,7 @@ import {
   UsersPage
 } from "./pages";
 import {Comments} from "./components/Comments/Comments";
+import {RequireAuth} from "./hoc/RequireAuth";
 
 const App = () => {
   return (
@@ -29,7 +30,12 @@ const App = () => {
               <Route path={'comments'} element={<Comments/>}/>
             </Route>
           </Route>
-          <Route path={'about'} element={<AboutPage/>}/>
+          <Route path={'about'} element={
+            <RequireAuth>
+              <AboutPage/>
+            </RequireAuth>
+          }/>
+          <Route path={'login'} element={<LoginPage/>}/>
           <Route path={'*'} element={<NotFoundPage/>}/>
         </Route>
       </Routes>
