@@ -17,10 +17,11 @@ export function Posts() {
     return (
         <div>
             {
-                posts.map(value => <div key={value.id}> {value.title}</div>)
-
+                posts.map(value =>
+                    <div key={value.id}>
+                        {value.title}
+                    </div>)
             }
-
         </div>
     );
 }
