@@ -26,15 +26,20 @@ function App() {
   const [catValue, setCatValue] = useState('');
   const [dogValue, setDogValue] = useState('');
 
-  const createCat = () => {
-    dispatch({ type: 'addCat', payload: catValue });
-    setCatValue('');
+  const settler = (type, payload, setEmpty) => {
+    if (payload) {
+      dispatch({type, payload})
+      setEmpty('')
+    }
   }
-
-  const createDog = () => {
-    dispatch({ type: 'addDog', payload: dogValue });
-    setDogValue('');
-  }
+  // const createCat = () => {
+  //   dispatch({ type: 'addCat', payload: catValue });
+  //   setCatValue('');
+  // }
+  // const createDog = () => {
+  //   dispatch({ type: 'addDog', payload: dogValue });
+  //   setDogValue('');
+  // }
 
   return (
       <div>
@@ -44,25 +49,24 @@ function App() {
                                      onChange={({ target }) => setCatValue(target.value)}
                                      value={catValue}/>
             </label>
-            <button onClick={createCat}>Save</button>
+            <button onClick={() => settler('addCat', catValue, setCatValue)}>Save</button>
           </div>
           <div>
             <label>Dog name : <input type="text"
                                      onChange={({ target }) => setDogValue(target.value)}
                                      value={dogValue}/>
             </label>
-            <button onClick={createDog}>Save</button>
+            <button onClick={() => settler('addDog', dogValue, setDogValue)}>Save</button>
           </div>
         </div>
-
         <hr/>
-
         <div style={{display: 'flex', justifyContent: 'space-between'}}>
           <div>
             {
               state.cats.map(cat => (
                   <div key={cat.id}>
-                    {cat.name}
+                    {cat.name}---
+                    {cat.id}
                     <button onClick={() => dispatch({ type: 'deleteCat', payload: cat.id })}>delete</button>
                   </div>
               ))
@@ -72,7 +76,8 @@ function App() {
             {
               state.dogs.map(dog => (
                   <div key={dog.id}>
-                    {dog.name}
+                    {dog.name}---
+                    {dog.id}
                     <button onClick={() => dispatch({ type: 'deleteDog', payload: dog.id })}>delete</button>
                   </div>
               ))
