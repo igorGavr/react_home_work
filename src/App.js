@@ -23,41 +23,37 @@ const reducer = (state, action) => {
 function App() {
   const [state, dispatch] = useReducer(reducer, { cats: [], dogs: [] });
 
-  const [catValue, setCatValue] = useState('');
-  const [dogValue, setDogValue] = useState('');
-
-  const settler = (type, payload, setEmpty) => {
-    if (payload) {
-      dispatch({type, payload})
-      setEmpty('')
-    }
+  // const settler = (type, payload, setEmpty) => {
+  //   if (payload) {
+  //     dispatch({type, payload})
+  //     setEmpty('')
+  //   }
+  // }
+  const createCat = (e) => {
+    e.preventDefault()
+    dispatch({ type: 'addCat', payload: e.target[0].value });
+    e.target.value = ''
   }
-  // const createCat = () => {
-  //   dispatch({ type: 'addCat', payload: catValue });
-  //   setCatValue('');
-  // }
-  // const createDog = () => {
-  //   dispatch({ type: 'addDog', payload: dogValue });
-  //   setDogValue('');
-  // }
+  const createDog = (e) => {
+    e.preventDefault()
+    dispatch({ type: 'addDog', payload:  e.target[0].value });
+  }
 
   return (
       <div>
         <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <div>
-            <label>Cat name : <input type="text"
-                                     onChange={({ target }) => setCatValue(target.value)}
-                                     value={catValue}/>
+          <form onSubmit={createCat}>
+            <label>
+              Cat name : <input type="text"/>
             </label>
-            <button onClick={() => settler('addCat', catValue, setCatValue)}>Save</button>
-          </div>
-          <div>
-            <label>Dog name : <input type="text"
-                                     onChange={({ target }) => setDogValue(target.value)}
-                                     value={dogValue}/>
+            <button>Save</button>
+          </form>
+          <form onSubmit={createDog}>
+            <label>
+              Dog name : <input type="text"/>
             </label>
-            <button onClick={() => settler('addDog', dogValue, setDogValue)}>Save</button>
-          </div>
+            <button>Save</button>
+          </form>
         </div>
         <hr/>
         <div style={{display: 'flex', justifyContent: 'space-between'}}>
