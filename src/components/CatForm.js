@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {catActions} from "../redux/slices/cat.slice";
 
@@ -7,6 +7,12 @@ const CatForm = () => {
 
     const dispatch = useDispatch();
     const {catForUpdate} = useSelector(state => state.cat);
+
+    useEffect(() => {
+        if (catForUpdate) {
+            setName(catForUpdate.name);
+        }
+    }, [catForUpdate]);
 
     const save = () => {
       if (catForUpdate) {

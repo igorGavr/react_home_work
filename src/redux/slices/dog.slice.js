@@ -1,7 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    dogs: []
+    dogs: [],
+    dogForUpdate: null
 };
 
 const dogSlice = createSlice({
@@ -17,18 +18,24 @@ const dogSlice = createSlice({
             const indexDelete = state.dogs.findIndex(value => value.id === action.payload.id);
             state.dogs.splice(indexDelete, 1)
         },
-        updateDogById: (state, action) => {
-            const indexUpdate = state.dogs.findIndex(value => value.id === action.payload.id);
-            state.dogs.splice(indexUpdate, 1, action.payload)
+        setDogForUpdate: (state, action) => {
+            state.dogForUpdate = action.payload.dog
+        },
+        updateDog: (state, action) => {
+            const {id, name} = action.payload
+            const index = state.dogs.findIndex((dog) => dog.id === id)
+            state.dogs[index].name = name
+            state.dogForUpdate = false
         }
     }
 });
 
-const {reducer: dogReducer, actions: {add, deleteById, updateDogById}} = dogSlice;
+const {reducer: dogReducer, actions: {add, deleteById, setDogForUpdate, updateDog }} = dogSlice;
 
 export default dogReducer
 export const dogActions = {
     add,
     deleteById,
-    updateDogById
+    setDogForUpdate,
+    updateDog
 }
