@@ -26,9 +26,9 @@ const CatForm = () => {
     return (
         <div>
             <label>Cat name:
-                <input type="text" ref={nameInput} placeholder={'Cat name'}/>
+                <input  type="text" ref={nameInput} placeholder={'Cat name'}/>
             </label>
-            <button onClick={() => save()}>{catForUpdate ? 'update' : 'create'}</button>
+            <button  onClick={() => save()}>{catForUpdate ? 'update' : 'create'}</button>
         </div>
     );
 };
