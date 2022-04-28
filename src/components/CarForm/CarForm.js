@@ -9,7 +9,7 @@ const CarForm = () => {
     const dispatch = useDispatch();
 
     const submit = async (newCar) => {
-      await dispatch(carActions.createAsync({car: newCar}))
+        await dispatch(carActions.createAsync({car: newCar}))
         reset()
     }
     return (

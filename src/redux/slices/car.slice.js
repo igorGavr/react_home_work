@@ -32,7 +32,7 @@ const createAsync = createAsyncThunk(
 const carSlice = createSlice({
     name: 'carSlice',
     initialState,
-    reducers: { // 2 тут прописуємо
+    reducers: { // 2 тут прописуємо create
         create: (state, action) => {
             state.cars.push(action.payload.car)
         }
