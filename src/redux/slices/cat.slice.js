@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {logDOM} from "@testing-library/react";
+
 
 const initialState = {
     cats: [],
@@ -12,9 +12,7 @@ const catSlice = createSlice({
     reducers: {
         add: (state, action) => {
             const {cat} = action.payload;
-            console.log(action.payload)
-            console.log(cat)
-            const newCat = { cat, id: new Date().getTime()}
+            const newCat = { name: cat, id: new Date().getTime()}
             state.cats.push(newCat)
         },
         deleteById: (state, action) => {
@@ -27,7 +25,7 @@ const catSlice = createSlice({
         updateCat: (state,action)=>{
             const {id, name} = action.payload
             const index = state.cats.findIndex(value => value.id===id)
-            state.cats[index].nameCat = name
+            state.cats[index].name = name
             state.catForUpdate = false
         }
     }

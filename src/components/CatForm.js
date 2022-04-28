@@ -9,17 +9,17 @@ const CatForm = () => {
 
     useEffect(() => {
         if (catForUpdate) {
-            nameInput.current.value = catForUpdate.nameCat
+            nameInput.current.value = catForUpdate.name
         }
     }, [catForUpdate])
 
     const save = () => {
       if (catForUpdate) {
           const newCat = nameInput.current.value
-          dispatch(catActions.updateCat({id: catForUpdate.id, nameInput: newCat}))
+          dispatch(catActions.updateCat({name: newCat, id: catForUpdate.id }))
       } else {
-          const cat = nameInput.current.value
-          dispatch(catActions.add({cat: cat}))
+          const newCat = nameInput.current.value
+          dispatch(catActions.add({cat: newCat}))
       }
       nameInput.current.value = ''
     }
