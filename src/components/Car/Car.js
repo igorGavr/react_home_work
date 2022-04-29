@@ -1,20 +1,14 @@
-import React from 'react';
-import {useDispatch} from "react-redux";
-import {carActions} from "../../redux";
+import { Link } from 'react-router-dom';
 
-const Car = ({car, car: {id, model, price, year}}) => {
-    const dispatch = useDispatch();
-
-    const deleteById = async () => {
-      await dispatch(carActions.deleteByIdAsync({id}))
-    }
+const Car = ({ car, car: { id, model } }) => {
     return (
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-            <div style={{width: '300px'}}>{id} -- {model} -- {price} -- {year}</div>
-            <button onClick={deleteById}>Delete</button>
-            <button onClick={() => dispatch(carActions.setCarForUpdate({car}))}>Update</button>
+        <div>
+            {id} -- {model}
+            <Link to={id.toString()} state={car}>
+                <button>Info</button>
+            </Link>
         </div>
     );
 };
 
-export {Car};
+export { Car };
