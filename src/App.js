@@ -1,5 +1,5 @@
 import {Cars} from "./components";
-import {CarForm} from "./components/CarForm/CarForm";
+import {CarForm} from "./components";
 
 
 function App() {

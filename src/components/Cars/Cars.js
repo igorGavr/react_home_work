@@ -8,7 +8,7 @@ const Cars = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(carActions.getAll())
+        dispatch(carActions.getAllAsync())
     },[])
     return (
         <div>
