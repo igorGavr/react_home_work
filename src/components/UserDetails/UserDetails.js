@@ -13,7 +13,9 @@ export const UserDetails = ({ user }) => {
             <div>street: {address.street}</div>
             <div>suite: {address.suite}</div>
             <div>zipcode: {address.zipcode}</div>
+
             <Button to={'posts'}>get posts</Button>
+
             <hr/>
         </div>
     );

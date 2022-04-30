@@ -1,5 +1,6 @@
 import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
 import { userService } from '../../services';
 import { UserDetails } from '../../components';
 import { Loading } from '../../components';
