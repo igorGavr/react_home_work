@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useParams} from "react-router-dom";
+
 import {carService} from "../../services";
 import {CarDetails} from "../../components";
 

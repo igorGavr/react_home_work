@@ -1,6 +1,7 @@
 import React from 'react';
-import {CarForm} from "../../components";
 import {Outlet} from "react-router-dom";
+
+import {CarForm} from "../../components";
 
 const MainLayout = () => {
     return (

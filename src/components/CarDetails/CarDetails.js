@@ -19,9 +19,9 @@ export const CarDetails = ({ car, car: { id, model, price, year } }) => {
             <p><b>year:</b>{year}</p>
             <button onClick={deleteById}>delete</button>
             <button onClick={() =>
-                dispatch
-                (carActions.setCarForUpdate({ car }))}>
-                update</button>
+                dispatch(carActions.setCarForUpdate({ car }))}>
+                update
+            </button>
         </div>
     );
 }
