@@ -4,6 +4,7 @@ import {useSearchParams} from "react-router-dom";
 
 import {Episode} from "../Episode/Episode";
 import {episodeActions} from "../../redux";
+import css from './episodes.module.css'
 
 
 const Episodes = () => {
@@ -25,7 +26,10 @@ const Episodes = () => {
     }
     return (
         <div>
-            {episodes.map(episode => <Episode key={episode.id} episode={episode}/>)}
+            <div className={css.episodes}>
+                {episodes.map(episode => <Episode key={episode.id} episode={episode}/>)}
+            </div>
+
             <button disabled={!prev} onClick={prevPage}>Prev</button>
             <button disabled={!next} onClick={nextPage}>Next</button>
 
