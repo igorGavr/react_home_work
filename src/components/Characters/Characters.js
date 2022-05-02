@@ -11,6 +11,7 @@ const Characters = () => {
     const [characters, setCharacters] = useState([]);
     const {state} = useLocation();
     console.log(state)
+    console.log(characters)
 
     useEffect(() => {
         characterService.getByCharacterList(state).then(({data}) => setCharacters(data))
