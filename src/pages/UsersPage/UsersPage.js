@@ -9,7 +9,7 @@ const UsersPage = () => {
     const [users, setUsers] = useState(null);
 
     useEffect(() => {
-        userService.getAll().then(({ data }) => setUsers(data));
+
     }, [])
 
     return (
