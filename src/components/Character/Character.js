@@ -1,6 +1,8 @@
+import css from './Character.module.css'
+
 const Character = ({character: {name, status, species, image}}) => {
     return (
-        <div>
+        <div className={css.character}>
             <h1>{name}</h1>
             <h2>{status}</h2>
             <h2>{species}</h2>

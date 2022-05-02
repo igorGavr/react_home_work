@@ -1,0 +1,11 @@
+.topMenu{
+    background-color: #2b7ec6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 34px;
+    padding: 12px;
+}
+.topMenu a {
+    color: black;
+}

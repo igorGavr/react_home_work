@@ -2,18 +2,17 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
 
-import {Episode} from "../Episode/Episode";
-import {episodeActions} from "../../redux";
-import css from './episodes.module.css'
+import {locationActions} from "../../redux";
+import {Location} from "../Location/Location";
+import css from './Locations.module.css'
 
-
-const Episodes = () => {
-    const {episodes, next, prev} = useSelector(state => state.episodes);
+const Locations = () => {
+    const {locations, next, prev} = useSelector(state => state.locations);
     const [query, setQuery] = useSearchParams({page: '1'});
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(episodeActions.getAll({page: query.get('page')}))
+        dispatch(locationActions.getAll({page: query.get('page')}))
     }, [query])
 
     const nextPage = () => {
@@ -26,8 +25,8 @@ const Episodes = () => {
     }
     return (
         <div>
-            <div className={css.episodes}>
-                {episodes.map(episode => <Episode key={episode.id} episode={episode}/>)}
+            <div className={css.locations}>
+                {locations.map(location => <Location key={location.id} location={location}/>)}
             </div>
             <div className={css.btn}>
                 <button disabled={!prev} onClick={prevPage}>Prev</button>
@@ -38,4 +37,4 @@ const Episodes = () => {
     );
 };
 
-export {Episodes};
+export {Locations};

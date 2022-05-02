@@ -1,21 +1,23 @@
 import {Route, Routes, Navigate} from "react-router-dom";
 
 import {MainLayout} from "./layouts";
-import {CharactersPage, EpisodesPage} from "./pages";
+import {CharactersPage, EpisodesPage, LocationsPage} from "./pages";
+
 
 function App() {
-  return (
-    <div className="App">
-      <Routes>
-        <Route path={'/'} element={<MainLayout/>}>
-          <Route index element={<Navigate to={'episodes'}/>}/>
-          <Route path={'episodes'} element={<EpisodesPage/>}/>
-          <Route path={'characters'} element={<CharactersPage/>}/>
-        </Route>
-      </Routes>
+    return (
+        <div className="App">
+            <Routes>
+                <Route path={'/'} element={<MainLayout/>}>
+                    <Route index element={<Navigate to={'episodes'}/>}/>
+                    <Route path={'episodes'} element={<EpisodesPage/>}/>
+                    <Route path={'characters'} element={<CharactersPage/>}/>
+                    <Route path={'locations'} element={<LocationsPage/>}/>
+                </Route>
+            </Routes>
 
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
