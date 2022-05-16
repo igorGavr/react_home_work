@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useLocation, useSearchParams} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import {characterService} from "../../services";
 import {Character} from "../Character/Character";
@@ -9,22 +9,25 @@ import {characterActions} from "../../redux/slices/character.slice";
 
 
 
+
 const Characters = () => {
     const [characters, setCharacters] = useState([]);
     const {state} = useLocation();
-    const [allCharacters, next, prev] = useSelector(state => state.characters);
+    const {allCharacters, next, prev}= useSelector(state => state.characters);
     const [query, setQuery] = useSearchParams({page: '1'});
+    const dispatch = useDispatch();
 
-
-    console.log(allCharacters)
+    console.log(allCharacters, characters)
 
     useEffect(() => {
         if (state) {
             characterService.getByCharacterList(state).then(({data}) => setCharacters(data))
         }else {
-            characterActions.getAll({page: query.get('page')})
-            setCharacters(allCharacters)
+            dispatch(characterActions.getAll({page: query.get('page')}))
+
+            console.log(characters)
         }
+        setCharacters(allCharacters)
     }, [query, state])
 
     const nextPage = () => {

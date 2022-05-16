@@ -33,7 +33,6 @@ const characterSlice = createSlice({
                 state.next = next
                 state.prev = prev
                 state.allCharacters = results
-                console.log(action.payload)
             })
     }
 });
