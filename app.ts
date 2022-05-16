@@ -86,6 +86,7 @@ const showSum = (a: number, b:number):void => {
 // user2.getId()
 
 
+
 interface IShapeActions {
     area:()=> number
     perimeter:()=> number
