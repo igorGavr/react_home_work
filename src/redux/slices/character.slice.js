@@ -1,11 +1,12 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {characterService} from "../../services";
 
 const initialState = {
     pages: null,
     next: null,
     prev: null,
-    characters: []
+    allCharacters: []
 }
 
 const getAll = createAsyncThunk(
@@ -31,7 +32,7 @@ const characterSlice = createSlice({
                 state.pages = pages
                 state.next = next
                 state.prev = prev
-                state.characters = results
+                state.allCharacters = results
                 console.log(action.payload)
             })
     }
